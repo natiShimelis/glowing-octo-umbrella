@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Encode+Sans+Expanded&family=Open+Sans&display=swap');
+
+/* 
+font-family: 'Bebas Neue', cursive;
+font-family: 'Encode Sans Expanded', sans-serif;
+font-family: 'Open Sans', sans-serif; 
+*/
+
+/* Variables */
+
+:root {
+    --black: #010606;
+    --white: #f6f6f6;
+    --lightgreen: #00ff95;
+    --ronchi: #ebb650;
+    --Aqua: #7ddeb6;
+}
+
+:root {
+    --small: 0.75rem;
+    --medium: 1rem;
+    --large: 1.333rem;
+    --header-main: 2.369rem;
+    --header-sub: 1.777rem;
+}
+
+/* Pseudo Class styles for all elements */
+
+*, *::before,*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; 
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+}
+.navbar1{
+    width: 85%;
+    margin: auto;
+    padding: 100px 0;
+    align-items: center;
+    
+}
+.navbar1 h1{
+    margin-left: 10px;
+}
+.navbar1 ul li{
+    list-style: none;
+    display: inline;
+    margin: 40px 20px;
+    position: relative;
+    float: left;
+    clear: right;
+}
+.navbar1 ul li a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.788);
+    text-transform: uppercase;
+}
+.navbar1 ul li a:hover{
+    color: rgba(0, 0, 0, 0.452);
+}
+.navbar1 ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+.navbar1 ul li:hover:after{
+    width: 100%;
+}
+.content{
+    width: 20%;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.644);
+    padding: 30px 0px;
+    margin-top: -3%;
+    margin-left: 15%;
+}
+.content img{
+    width: 100%;
+}
+.title h1{
+    font-size: 30px;
+    margin-top: -100px;
+}
+.title{
+    text-align: center;
+    padding: 25px 0px;
+}
+.title p{
+    font-size:18px;
+}
+.card-body{
+    box-shadow: 0 0 20px 7px rgba(0,0,0,0.1);
+}
+.card{
+    margin: 20px 10px;
+}
+.card-body a{
+    color: #0c7f90;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: auto;
+    font-weight: 600;
+}
+.card-body a:hover{
+    color: #63a6b0;
+    text-decoration: none;
+}
+.create{
+    color: black;
+}
+

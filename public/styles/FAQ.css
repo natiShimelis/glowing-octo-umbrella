@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Encode+Sans+Expanded&family=Open+Sans&display=swap');
+
+/* 
+font-family: 'Bebas Neue', cursive;
+font-family: 'Encode Sans Expanded', sans-serif;
+font-family: 'Open Sans', sans-serif; 
+*/
+
+/* Variables */
+
+:root {
+    --black: #010606;
+    --white: #f6f6f6;
+    --lightgreen: #00ff95;
+    --ronchi: #ebb650;
+    --Aqua: #7ddeb6;
+}
+
+:root {
+    --small: 0.75rem;
+    --medium: 1rem;
+    --large: 1.333rem;
+    --header-main: 2.369rem;
+    --header-sub: 1.777rem;
+}
+
+/* Pseudo Class styles for all elements */
+
+*, *::before,*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; 
+    background-color:linen;
+}
+
+#faq-container{
+    min-height: 100vh;
+    width: 75%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    font-size: var(--header-sub);
+    margin: 2rem 0;
+}
+
+.faq{
+    max-width: 43.75rem; 
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--black);
+    cursor: pointer;
+}
+
+.question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question h3{
+    font-size: var(--large);
+}
+
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease;
+}
+
+.answer p{
+    padding-top: 1rem;
+    line-height: 1.25;
+    font-size: var(--medium);
+}
+
+.faq.active .answer{
+    max-height: 900px;
+    animation: fade 1s ease-in-out;
+}
+
+.faq.active svg{
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-in;
+}
+
+svg{
+    transition: transform 0.5s ease-in;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform:translateY(0px)
+    }
+}
