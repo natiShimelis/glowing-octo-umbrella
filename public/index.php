@@ -9,6 +9,7 @@ session_set_cookie_params(["SameSite" => "Strict"]); //none, lax, strict
 session_set_cookie_params(["Secure" => "true"]); //false, true
 session_set_cookie_params(["HttpOnly" => "true"]); //false, true
 header_remove('X-Powered-By');
+header_remove('Server');
 session_start(); //everything before this
 ?>
 
@@ -46,7 +47,7 @@ session_start(); //everything before this
       <ul class="navbar-menu menu">
         <li class="search-menu-item">
         <?php
-          session_start(); // Start or resume the session
+        // Start or resume the session
 
         // Generate a CSRF token
           $csrfToken = bin2hex(random_bytes(32));
