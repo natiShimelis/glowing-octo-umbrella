@@ -5,6 +5,8 @@ header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
 
 header("X-Frame-Options: SAMEORIGIN");
 
+header("X-Content-Type-Options: nosniff");
+
 session_set_cookie_params(["SameSite" => "Strict"]); //none, lax, strict
 session_set_cookie_params(["Secure" => "true"]); //false, true
 session_set_cookie_params(["HttpOnly" => "true"]); //false, true
