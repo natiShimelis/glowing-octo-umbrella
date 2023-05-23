@@ -1,5 +1,8 @@
 <?php
-header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';");
+header("Content-Security-Policy: default-src 'self'; script-src 'self' ; style-src 'self'; img-src 'self'; font-src 'self';");
+// Enable HSTS for one year (31536000 seconds) and include subdomains
+header("Strict-Transport-Security: max-age=31536000; includeSubDomains");
+
 ?>
 
 
@@ -55,7 +58,6 @@ header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-i
           </form>
         </li>
         <?php 
-          session_start();
           if(isset($_SESSION["userid"])) {
             $image = $_SESSION["userprofileimg"];
             echo "<li class=\"navbar-menu-item\">";
