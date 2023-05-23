@@ -35,7 +35,17 @@ header("Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-i
       
       <ul class="navbar-menu menu">
         <li class="search-menu-item">
+        <?php
+          session_start(); // Start or resume the session
+
+        // Generate a CSRF token
+          $csrfToken = bin2hex(random_bytes(32));
+
+        // Store the token in the session for later validation
+          $_SESSION['csrf_token'] = $csrfToken;
+        ?>
           <form action="../application/view/searchResult.php" method="POST">
+            <input type="hidden" name="csrf_token" value="<?php echo $csrfToken; ?>">
             <div class='searchContainer'>
               <button class='iconButton' name="submit-search">
                 <i class="fa-solid fa-magnifying-glass"></i>

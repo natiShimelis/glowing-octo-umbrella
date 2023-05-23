@@ -73,6 +73,18 @@ include '../controller/connection.inc.php';
       </ul>
     </div>
   </nav>
+
+  <?php
+  if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+    // CSRF token is valid, continue processing the form
+    // Perform necessary actions and handle form submission
+  } else {
+    // CSRF token is missing or invalid, reject the form submission
+    echo "CSRF token validation failed. Please try again.";
+    // You might want to redirect the user to an error page or perform some other appropriate action
+    exit;
+  }
+  ?>
   
 
 
@@ -175,6 +187,9 @@ include '../controller/connection.inc.php';
            
                                                                                                 
             if(isset($_POST['search'])){
+              if (isset($_POST['csrf_token']) && $_POST['csrf_token'] === $_SESSION['csrf_token']) {
+                
+              
               $search=$_POST['search'];
                 
               $search=mysqli_real_escape_string($conn,$_POST['search']);
@@ -191,19 +206,25 @@ include '../controller/connection.inc.php';
               ON u.UserID = b.UserID
               WHERE (b.blogName lIKE '%$search%' OR b.Content lIKE '%$search%') $sort";
               $result=mysqli_query($conn, $sql);
-            $queryResult=mysqli_num_rows($result);
-            if($queryResult>0){
-            while($row=mysqli_fetch_assoc($result)){
-              echo "<a href='articles/article.php?title=".$row['blogName']."&date=".$row['createdAt']."'>
-                <div class='blog-box'>
-              <h3>".$row['blogName']."</h3>
-              <p>".$row['createdAt']."</p>
-              <p>".$row['UserName']."</p>
+              $queryResult=mysqli_num_rows($result);
+              if($queryResult>0){
+              while($row=mysqli_fetch_assoc($result)){
+                echo "<a href='articles/article.php?title=".$row['blogName']."&date=".$row['createdAt']."'>
+                  <div class='blog-box'>
+                <h3>".$row['blogName']."</h3>
+                <p>".$row['createdAt']."</p>
+                <p>".$row['UserName']."</p>
 
-              </div></a>";
+                </div></a>";
+              }
             }
-            }
-          }
+
+          } else {
+                // CSRF token is missing or invalid, reject the form submission
+                echo "CSRF token validation failed. Please try again.";
+                // You might want to redirect the user to an error page or perform some other appropriate action
+                exit;
+              }}
           
                 if(isset($_POST['sort']))
                 {
