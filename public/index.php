@@ -12,7 +12,7 @@ session_set_cookie_params(["Secure" => "true"]); //false, true
 session_set_cookie_params(["HttpOnly" => "true"]); //false, true
 header_remove('X-Powered-By');
 header_remove('Server');
-session_start(); //everything before this
+session_start(); 
 ?>
 
 
